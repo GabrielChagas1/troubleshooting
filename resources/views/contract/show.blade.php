@@ -1,6 +1,7 @@
 @extends('layout.main')
 
-@section('body')
+@section('content')
+{{-- erro --}}
 
     <h1 class="display-3">Contrato</h1>
     <p>Eu <span class="font-weight-bold">{!! $customer->name!!}</span>, aceito o contrato tipo <span

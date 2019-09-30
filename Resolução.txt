@@ -1,0 +1,26 @@
+1° erro -> No arquivo 'web.php' na route foi alterado o 'uses', pois o mesmo chamava um método inexistente
+erro -> 'uses' => 'ContractController@show'
+alterado -> 'uses' => 'ContractController@index'
+
+2° erro -> No controller contract foi adicionado a linha linha nova para que ele enxergasse a classe CustomerRepository
+linha -> 'use Model\Customer\CustomerRepository;'
+
+3° erro -> Na classe 'Customer' foi alterado uma linha para que o relacionamento pudesse ser feito corretamente
+linha -> return $this->hasOne('Model\Contract\Contract', 'customer_id', 'customer_id');
+
+4° erro -> No model Contract, foi adicionado ao método 'scopeFields()', mais um campo para busca, para que a parte dele pudesse ser recuperado os dados do contrato
+campo -> 'contract_id';
+
+5º erro -> Na classe 'Contract' foi adicionado uma nova linha para permitir o 'contract_id' ser utilizado'
+linha -> public $incrementing = false;
+
+6º erro -> No controller 'Contract' os parâmetros estavam trocados, para funcionar foi invertido a ordem das variáveis passadas
+
+7º erro -> Nas routas foi foi adicionado um sinal de ? para o último parâmetro, para que não seja obrigatório passr ele, sendo assim assumindo o valor default de 'LOREN'
+
+8° erro -> Para arrumar o erro dá variável 'current_date', foi adicionado uma linha dentro dá classe 'AppServiceProvider'.
+linha -> view()->composer("contract.show","App\Http\View\Composers\CurrentDateComposer");
+
+
+
+

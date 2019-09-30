@@ -6,6 +6,8 @@ class Contract extends Model {
 
     protected $table = 'contract';
     protected $primaryKey = 'contract_id';
+    public $incrementing = false;
+    // erro
     public $timestamps = false;
 
     public function customer()
@@ -20,6 +22,6 @@ class Contract extends Model {
 
     public function scopeFields($query)
     {
-        return $query->select('customer_id','description');
+        return $query->select('contract_id','customer_id','description');
     }
 }

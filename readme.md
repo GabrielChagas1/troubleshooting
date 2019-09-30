@@ -1,65 +1,71 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Telium Troubleshooting Test
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Instruções Gerais
 
-## About Laravel
+Para começar basta realizar o clone do projeto em seu ambiente de dev.
+Esse projeto utiliza como base o laravel 5.6, para os requisitos acesse a [documentação](https://laravel.com/docs/5.6/installation)
+ do laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Em seguida executar a atualização de pacotes do composer:
+```
+composer update
+```
+Agora configure sua database usando um arquivo .env preferencialmente. Existe um modelo na raiz do projeto mas os parâmetros necessários são:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```php
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+DB_CONNECTION=mysql
+DB_HOST=<seu host>
+DB_PORT=3306
+DB_DATABASE=<sua database>
+DB_USERNAME=<seu usuário>
+DB_PASSWORD=<sua senha>
 
-## Learning Laravel
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+Em seguida rodar o comando para executar as migrations e seeds, com isso você terá as tabelas e dados necessários.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+```
+php artisan migrate:refresh --seed
+```
 
-## Laravel Sponsors
+Se tudo correu bem, basta acessar a url base do projeto para encontrar a página padrão de welcome do laravel
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+![Welcome do Laravel][welcome]
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
+[welcome]: https://github.com/telium-networks/troubleshooting/raw/master/public/images/laravel_welcome.png "Welcome Laravel"
 
-## Contributing
+## Desafio
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+O código desse projeto tem 10 erros embutidos, dos mais diversos tipos como erros em controllers, views, rotas, etc.
 
-## Security Vulnerabilities
+Você deverá acessar somente uma url principal, não é permitido alterá-la.
+```
+http://<sua url>/contract/1
+```    
+A partir dessa página você deve realizar troubleshooting afim de chegar ao resultado final, uma página estática com extamanete esses valores.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Resultado][result]
 
-## License
+[result]: https://github.com/telium-networks/troubleshooting/raw/master/public/images/result.png "Resultado"
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Premissas
+
+- Você pode utilizar qualquer ferramenta para debug, instalada no server, debugbar, etc.
+- Todos os problemas podem ser resolvidos com 1 linha de código, muitas vezes uma palavra, então não refaça código para contornar o erro.
+- 
+
+## Instruções de envio
+
+Faça um fork do projeto para seu github e finalizado o desenvolvimento, faça um pull request para o projeto principal.
+Além do seu código, envie instruções dos erros que corrigiu.
+
+## Contato
+
+Em caso de qulquer dúvida, critica ou sugestão que voce tiver, favor enviar um email para ti@telium.com.br que lhe auxiliaremos dentro do possível.
+
+## Prazo
+
+Você tem SETE dias, contando do envio deste desafio para você, para nos entregar sua solução pronta. 
+
+Boa sorte!

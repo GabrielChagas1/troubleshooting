@@ -16,5 +16,6 @@ class CustomerRepository
             $query->fields();
             $query->where('contract_id', $contract_id)->first();
         },'contract.items'])->find($customer_id);
+        
     }
 }
