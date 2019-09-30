@@ -21,6 +21,8 @@ linha -> public $incrementing = false;
 8° erro -> Para arrumar o erro dá variável 'current_date', foi adicionado uma linha dentro dá classe 'AppServiceProvider'.
 linha -> view()->composer("contract.show","App\Http\View\Composers\CurrentDateComposer");
 
+**Corrigindo esses 8 erros já foi possível chegar na solução proposta"
+
 
 
 
